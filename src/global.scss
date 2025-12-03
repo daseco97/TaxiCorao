@@ -1,0 +1,49 @@
+/* Leaflet styles */
+@import "leaflet/dist/leaflet.css";
+
+#map {
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+  background: #e0e0e0; /* fondo mientras carga */
+}
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fix Ionic height issues */
+ion-content, ion-app, ion-page {
+  height: 100%;
+}
+
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Dark mode */
+@import '@ionic/angular/css/palettes/dark.system.css';

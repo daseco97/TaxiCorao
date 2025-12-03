@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>TaxiCorao</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Título -->
+  <h2 style="text-align:center; font-weight:bold; margin-bottom:20px;">
+    ¿A dónde te llevamos hoy?
+  </h2>
+
+  <!-- Mapa -->
+  <div id="map"></div>
+
+  <!-- Botón pedir taxi -->
+  <ion-button 
+    expand="block" 
+    color="success" 
+    size="large"
+    style="margin-bottom:25px;"
+    (click)="pedirTaxi()">
+    🚖 Pedir Taxi
+  </ion-button>
+
+<ion-card *ngIf="kmRestantes !== null">
+  <ion-card-header>
+    <ion-card-title>📊 Detalles del viaje</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p><strong>Distancia:</strong> {{ kmRestantes }} km</p>
+    <p><strong>Tiempo estimado:</strong> {{ tiempoEstimado }} min</p>
+    <p><strong>Precio estimado:</strong> {{ precioEstimado }} €</p>
+  </ion-card-content>
+</ion-card>
+
+
+<!-- BUSCAR DIRECCIÓN DE DESTINO -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>📍 ¿A dónde quieres ir?</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-input
+      placeholder="Escribe una dirección..."
+      [(ngModel)]="destinoEscrito">
+    </ion-input>
+
+    <ion-button
+      expand="block"
+      color="primary"
+      style="margin-top: 10px;"
+      (click)="buscarDestino()">
+      Buscar destino
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="kmRestantes">
+  <ion-card-header>
+    <ion-card-title>📏 Información del trayecto</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p><strong>Distancia hasta ti:</strong> {{ kmRestantes }} km</p>
+    <p><strong>Tiempo estimado:</strong> {{ tiempoEstimado }} min</p>
+    <p><strong>Precio aproximado:</strong> {{ precioEstimado | number:'1.2-2' }} €</p>
+  </ion-card-content>
+</ion-card>
+
+ <!-- Tarjeta ubicación -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>📍 Tu ubicación</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p><strong>{{ currentLocation }}</strong></p>
+  </ion-card-content>
+</ion-card>
+
+
+  <!-- Botón obtener ubicación -->
+  <ion-button 
+    expand="block" 
+    color="warning" 
+    style="margin-bottom:25px;" 
+    (click)="getLocation()">
+    Obtener ubicación
+  </ion-button>
+
+  <!-- Tarjeta información del conductor -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>👨‍✈️ Conductor asignado</ion-card-title>
+      <ion-card-subtitle>TaxiCorao</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Nombre: <strong>{{ taxista.nombre }}</strong></p>
+      <p>Coche: <strong>{{ taxista.coche }}</strong></p>
+      <p>Matrícula: <strong>{{ taxista.matricula }}</strong></p>
+    </ion-card-content>
+  </ion-card>
+
+<ion-button expand="block" color="primary" (click)="iniciarViaje()">
+  🚕 INICIAR VIAJE
+</ion-button>
+
+<div class="panel-info">
+  <h3>🚕 Estado: {{ estadoViaje }}</h3>
+
+  <p><strong>Distancia restante:</strong> {{ kmRestantes }} km</p>
+  <p><strong>Tiempo estimado:</strong> {{ tiempoEstimado }} min</p>
+  <p><strong>Precio estimado:</strong> {{ precioEstimado }} €</p>
+</div>
+
+  <!-- Botón ruta taxi -->
+  <ion-button 
+    expand="block" 
+    color="primary" 
+    style="margin-bottom:25px;" 
+    (click)="pedirTaxi()">
+    Ver ruta del taxi hacia ti
+  </ion-button>
+
+  <!-- Botón logout -->
+  <ion-button 
+    expand="block" 
+    color="danger" 
+    style="margin-top:30px;"
+    (click)="logout()">
+    Cerrar sesión
+  </ion-button>
+
+</ion-content>
