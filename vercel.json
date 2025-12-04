@@ -1,6 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "version": 2,
+  "builds": [
+    { "src": "www/**/*", "use": "@vercel/static" }
   ],
-  "cleanUrls": true
+  "routes": [
+    { "src": "/(.*)", "dest": "/www/index.html" }
+  ]
 }
