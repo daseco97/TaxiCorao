@@ -1,8 +1,9 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "version": 2,
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "www",
+  "routes": [
+    { "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|json|woff2?|ttf|eot))", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
-
